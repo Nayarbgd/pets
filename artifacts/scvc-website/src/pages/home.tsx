@@ -110,7 +110,7 @@ export default function Home() {
               <motion.p variants={fadeUp} className="relative z-10 text-xl text-white/75 max-w-xl leading-relaxed mb-10">
                 Dubai's trusted veterinary clinic offering world-class consultations, grooming, vaccinations, dental care, home visits, and pet taxi services in JLT.
               </motion.p>
-              <motion.div variants={fadeUp} className="relative z-10 flex flex-wrap gap-4 mb-8">
+              <motion.div variants={fadeUp} className="relative z-10 flex flex-wrap gap-4 mb-8 items-center">
                 <Link href="/book">
                   <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold px-8 h-14 text-base shadow-xl shadow-black/20" data-testid="button-hero-book">
                     <Calendar className="w-5 h-5 mr-2" />
@@ -129,21 +129,18 @@ export default function Home() {
                     WhatsApp
                   </Button>
                 </a>
-              </motion.div>
 
-              {/* Rating badge — below CTAs */}
-              <motion.div
-                variants={fadeUp}
-                className="relative z-10 inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3"
-              >
-                <div className="flex">
-                  {[1,2,3,4,5].map(i => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <div>
-                  <div className="text-white font-bold text-sm leading-tight">4.7 / 5</div>
-                  <div className="text-white/70 text-xs">113+ verified reviews</div>
+                {/* Rating badge — inline after WhatsApp */}
+                <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3">
+                  <div className="flex">
+                    {[1,2,3,4,5].map(i => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <div>
+                    <div className="text-white font-bold text-sm leading-tight">4.7 / 5</div>
+                    <div className="text-white/70 text-xs">113+ verified reviews</div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
