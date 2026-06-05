@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/home";
@@ -36,6 +37,14 @@ function AnimatedPage({ children }: { children: React.ReactNode }) {
       {children}
     </motion.div>
   );
+}
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location]);
+  return null;
 }
 
 function Router() {
@@ -75,6 +84,7 @@ function App() {
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <div className="flex flex-col min-h-[100dvh]">
+            <ScrollToTop />
             <Navbar />
             <main className="flex-1">
               <Router />
