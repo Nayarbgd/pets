@@ -8,10 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-primary font-serif font-bold text-xl">
-                SC
-              </div>
+            <Link href="/" className="flex items-center gap-3">
+              <img src="/scvc-logo.png" alt="SCVC Logo" className="h-10 w-auto object-contain brightness-0 invert" />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg leading-tight text-white">Safe Care</span>
                 <span className="text-xs text-primary-foreground/80 font-medium uppercase tracking-wider">Veterinary Clinic</span>

@@ -33,10 +33,8 @@ export default function Navbar() {
       {/* Main Navbar */}
       <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-white"}`}>
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-serif font-bold text-xl">
-              SC
-            </div>
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/scvc-logo.png" alt="SCVC Logo" className="h-10 w-auto object-contain" />
             <div className="flex flex-col">
               <span className="font-serif font-bold text-lg leading-tight text-primary">Safe Care</span>
               <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Veterinary Clinic</span>
