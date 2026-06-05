@@ -392,7 +392,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/grooming-image.png"
+                  src="/grooming-dog.jpg"
                   alt="Professional pet grooming at Safe Care Veterinary Clinic"
                   className="w-full h-full object-cover rounded-3xl"
                 />

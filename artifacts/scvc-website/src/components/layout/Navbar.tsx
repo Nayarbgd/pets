@@ -30,25 +30,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="hidden md:flex bg-primary text-primary-foreground py-2 px-6 justify-between items-center text-sm">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-primary-foreground/80" />
-            <span>Jumeirah Bay X2, Shop 7, JLT, Dubai</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <span className="text-primary-foreground/80">Mon-Sat 9am-9pm | Sun 10am-6pm</span>
-          </div>
-          <div className="flex items-center gap-2 font-medium">
-            <Phone className="w-4 h-4 text-accent" />
-            <span>+971 4 834 3287</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-white"}`}>
         <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
