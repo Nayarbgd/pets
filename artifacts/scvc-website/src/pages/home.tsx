@@ -78,22 +78,34 @@ export default function Home() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}>
+            {/* LEFT — text content */}
+            <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
+              {/* Bone — small decorative, rotated, behind the "P" of Premium */}
+              <motion.img
+                src="/hero-animals.png"
+                alt=""
+                aria-hidden="true"
+                initial={{ opacity: 0, rotate: -40, scale: 0.6 }}
+                animate={{ opacity: 0.55, rotate: -38, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+                className="absolute w-[90px] top-[68px] left-[-18px] z-0 pointer-events-none"
+              />
+
+              <motion.div variants={fadeUp} className="relative z-10">
                 <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
                   <MapPin className="w-3.5 h-3.5 mr-1.5" /> Jumeirah Lakes Towers, Dubai
                 </Badge>
               </motion.div>
-              <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
+              <motion.h1 variants={fadeUp} className="relative z-10 text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
                 Premium Care<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-violet-300">
                   Your Pet Deserves
                 </span>
               </motion.h1>
-              <motion.p variants={fadeUp} className="text-xl text-white/75 max-w-xl leading-relaxed mb-10">
+              <motion.p variants={fadeUp} className="relative z-10 text-xl text-white/75 max-w-xl leading-relaxed mb-10">
                 Dubai's trusted veterinary clinic offering world-class consultations, grooming, vaccinations, dental care, home visits, and pet taxi services in JLT.
               </motion.p>
-              <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+              <motion.div variants={fadeUp} className="relative z-10 flex flex-wrap gap-4 mb-8">
                 <Link href="/book">
                   <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold px-8 h-14 text-base shadow-xl shadow-black/20" data-testid="button-hero-book">
                     <Calendar className="w-5 h-5 mr-2" />
@@ -113,25 +125,12 @@ export default function Home() {
                   </Button>
                 </a>
               </motion.div>
-            </motion.div>
 
-            {/* Hero image — animals */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="hidden lg:flex items-center justify-center relative"
-            >
-              {/* Soft glow behind image */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-accent/25 blur-[90px]" />
-              {/* Image — transparent PNG floats on the hero gradient */}
-              <img
-                src="/hero-animals.png"
-                alt="Happy pets cared for at Safe Care Veterinary Clinic Dubai"
-                className="relative z-10 w-full max-w-[520px] drop-shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
-              />
-              {/* Floating trust badge */}
-              <div className="absolute bottom-4 left-2 z-20 bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+              {/* Rating badge — below CTAs */}
+              <motion.div
+                variants={fadeUp}
+                className="relative z-10 inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3"
+              >
                 <div className="flex">
                   {[1,2,3,4,5].map(i => (
                     <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -141,7 +140,23 @@ export default function Home() {
                   <div className="text-white font-bold text-sm leading-tight">4.7 / 5</div>
                   <div className="text-white/70 text-xs">113+ verified reviews</div>
                 </div>
-              </div>
+              </motion.div>
+            </motion.div>
+
+            {/* RIGHT — dog & cat hero image */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              className="hidden lg:flex items-center justify-center relative"
+            >
+              {/* Soft glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-accent/25 blur-[90px]" />
+              <img
+                src="/grooming-image.png"
+                alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
+                className="relative z-10 w-full max-w-[520px] drop-shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+              />
             </motion.div>
           </div>
         </div>
