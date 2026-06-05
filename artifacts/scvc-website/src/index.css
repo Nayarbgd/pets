@@ -207,6 +207,20 @@
   to   { opacity: 1; transform: scale(1);   }
 }
 
+@keyframes glowFloat1 {
+  0%   { transform: translateY(0px) translateX(0px); }
+  33%  { transform: translateY(-18px) translateX(8px); }
+  66%  { transform: translateY(-8px) translateX(-6px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes glowFloat2 {
+  0%   { transform: translateY(0px) translateX(0px); }
+  33%  { transform: translateY(-12px) translateX(-10px); }
+  66%  { transform: translateY(-22px) translateX(5px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
 @layer base {
   * {
     @apply border-border;

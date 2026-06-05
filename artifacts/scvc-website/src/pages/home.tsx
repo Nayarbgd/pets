@@ -83,12 +83,57 @@ export default function Home() {
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
           className="absolute bottom-0 right-0 w-[52%] max-w-[760px] z-10 pointer-events-none hidden lg:block"
         >
-          {/* Glow behind pets */}
-          <div className="absolute bottom-0 right-0 w-full h-[80%] rounded-full bg-accent/25 blur-[100px]" />
+          {/* Blue glow — behind the dog (right side) */}
+          <div
+            style={{
+              position: "absolute",
+              right: "-8%",
+              top: "5%",
+              width: "65%",
+              height: "70%",
+              background: "radial-gradient(ellipse at center, rgba(99,179,237,0.28) 0%, rgba(66,153,225,0.14) 45%, transparent 75%)",
+              filter: "blur(48px)",
+              borderRadius: "50%",
+              animation: "glowFloat1 16s ease-in-out infinite",
+              zIndex: 1,
+              willChange: "transform",
+            }}
+          />
+          {/* Purple glow — behind the cat (left side) */}
+          <div
+            style={{
+              position: "absolute",
+              left: "-6%",
+              top: "10%",
+              width: "60%",
+              height: "65%",
+              background: "radial-gradient(ellipse at center, rgba(167,139,250,0.26) 0%, rgba(139,92,246,0.13) 45%, transparent 75%)",
+              filter: "blur(52px)",
+              borderRadius: "50%",
+              animation: "glowFloat2 20s ease-in-out infinite",
+              zIndex: 1,
+              willChange: "transform",
+            }}
+          />
+          {/* Soft base ambient glow — fills centre, blends everything */}
+          <div
+            style={{
+              position: "absolute",
+              left: "10%",
+              top: "20%",
+              width: "80%",
+              height: "55%",
+              background: "radial-gradient(ellipse at center, rgba(129,140,248,0.12) 0%, transparent 70%)",
+              filter: "blur(60px)",
+              borderRadius: "50%",
+              zIndex: 1,
+            }}
+          />
           <img
             src="/grooming-image.png"
             alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
-            className="relative z-10 w-full drop-shadow-[0_0_60px_rgba(138,92,246,0.35)]"
+            className="relative w-full drop-shadow-[0_0_60px_rgba(138,92,246,0.35)]"
+            style={{ position: "relative", zIndex: 2 }}
           />
         </motion.div>
 
