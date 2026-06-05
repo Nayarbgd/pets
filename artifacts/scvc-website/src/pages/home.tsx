@@ -76,7 +76,23 @@ export default function Home() {
         <div className="absolute top-20 right-[-100px] w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px]" />
         <div className="absolute bottom-0 left-[-80px] w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]" />
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10 py-20">
+        {/* Pet image — absolutely anchored bottom-right, large */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+          className="absolute bottom-0 right-0 w-[52%] max-w-[760px] z-10 pointer-events-none hidden lg:block"
+        >
+          {/* Glow behind pets */}
+          <div className="absolute bottom-0 right-0 w-full h-[80%] rounded-full bg-accent/25 blur-[100px]" />
+          <img
+            src="/grooming-image.png"
+            alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
+            className="relative z-10 w-full drop-shadow-[0_0_60px_rgba(138,92,246,0.35)]"
+          />
+        </motion.div>
+
+        <div className="container mx-auto px-4 md:px-6 relative z-20 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — text content */}
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
@@ -143,21 +159,8 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* RIGHT — dog & cat hero image */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="hidden lg:flex items-center justify-center relative self-stretch"
-            >
-              {/* Soft glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/30 blur-[100px]" />
-              <img
-                src="/grooming-image.png"
-                alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
-                className="relative z-10 w-full max-w-[680px] drop-shadow-[0_32px_80px_rgba(0,0,0,0.6)] object-contain"
-              />
-            </motion.div>
+            {/* RIGHT — spacer so grid layout still works on the left */}
+            <div className="hidden lg:block" />
           </div>
         </div>
       </section>
