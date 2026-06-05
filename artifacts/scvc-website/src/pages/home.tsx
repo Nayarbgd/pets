@@ -80,15 +80,15 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — text content */}
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
-              {/* Bone — small decorative, rotated, behind the "P" of Premium */}
+              {/* Bone — decorative, diagonal, behind the "P" of Premium */}
               <motion.img
                 src="/hero-animals.png"
                 alt=""
                 aria-hidden="true"
-                initial={{ opacity: 0, rotate: -40, scale: 0.6 }}
-                animate={{ opacity: 0.55, rotate: -38, scale: 1 }}
-                transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-                className="absolute w-[90px] top-[68px] left-[-18px] z-0 pointer-events-none"
+                initial={{ opacity: 0, rotate: -42, scale: 0.5 }}
+                animate={{ opacity: 0.35, rotate: -40, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
+                className="absolute w-[120px] top-[58px] left-[-28px] z-0 pointer-events-none drop-shadow-[0_8px_20px_rgba(0,0,0,0.4)]"
               />
 
               <motion.div variants={fadeUp} className="relative z-10">
@@ -148,14 +148,14 @@ export default function Home() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="hidden lg:flex items-center justify-center relative"
+              className="hidden lg:flex items-center justify-center relative self-stretch"
             >
               {/* Soft glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-accent/25 blur-[90px]" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/30 blur-[100px]" />
               <img
                 src="/grooming-image.png"
                 alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
-                className="relative z-10 w-full max-w-[520px] drop-shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+                className="relative z-10 w-full max-w-[680px] drop-shadow-[0_32px_80px_rgba(0,0,0,0.6)] object-contain"
               />
             </motion.div>
           </div>
