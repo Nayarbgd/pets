@@ -18,8 +18,8 @@ import {
 } from "@/components/ui/accordion";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const stagger = {
@@ -66,13 +66,20 @@ const faqs = [
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isTouch, setIsTouch] = useState(true);
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    if (isTouch) return;
     const rect = heroRef.current?.getBoundingClientRect();
     if (!rect) return;
     const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
     const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
     setMousePos({ x, y });
-  }, []);
+  }, [isTouch]);
 
   useEffect(() => {
     document.title = "Safe Care Veterinary Clinic Dubai | Premium Vet Care in JLT";
@@ -85,7 +92,7 @@ export default function Home() {
         ref={heroRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setMousePos({ x: 0, y: 0 })}
-        className="relative min-h-[92vh] flex items-center overflow-hidden"
+        className="relative min-h-[88vh] md:min-h-[92vh] flex items-center overflow-hidden"
         style={{ background: "hsl(222, 58%, 9%)" }}
       >
         {/* ── MESH GRADIENT BASE ── */}
@@ -93,34 +100,38 @@ export default function Home() {
           background: "linear-gradient(135deg, hsl(222,60%,9%) 0%, hsl(228,55%,13%) 35%, hsl(248,50%,17%) 65%, hsl(265,42%,14%) 100%)",
         }} />
         {/* Mesh node — upper-left indigo */}
-        <div className="absolute" style={{
+        <div className="absolute pointer-events-none" style={{
           top: "-15%", left: "-8%", width: "65%", height: "75%",
           background: "radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 65%)",
           filter: "blur(50px)",
+          willChange: "transform",
           transform: `translate(${mousePos.x * -5}px, ${mousePos.y * -3}px)`,
           transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
         }} />
         {/* Mesh node — upper-right rich purple */}
-        <div className="absolute" style={{
+        <div className="absolute pointer-events-none" style={{
           top: "-8%", right: "-12%", width: "60%", height: "72%",
           background: "radial-gradient(ellipse at center, rgba(124,58,237,0.16) 0%, transparent 65%)",
           filter: "blur(55px)",
+          willChange: "transform",
           transform: `translate(${mousePos.x * -4}px, ${mousePos.y * -2}px)`,
           transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
         }} />
         {/* Mesh node — bottom-centre blue */}
-        <div className="absolute" style={{
+        <div className="absolute pointer-events-none" style={{
           bottom: "-15%", left: "25%", width: "55%", height: "60%",
           background: "radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%)",
           filter: "blur(60px)",
+          willChange: "transform",
           transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
           transition: "transform 1.6s cubic-bezier(0.25,0.46,0.45,0.94)",
         }} />
         {/* Cinematic studio light — upper-right */}
-        <div className="absolute" style={{
+        <div className="absolute pointer-events-none" style={{
           top: "-25%", right: "8%", width: "78%", height: "92%",
           background: "radial-gradient(ellipse at 63% 28%, rgba(219,234,254,0.07) 0%, rgba(147,197,253,0.03) 38%, transparent 65%)",
           filter: "blur(20px)",
+          willChange: "transform",
           transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
           transition: "transform 1.8s cubic-bezier(0.25,0.46,0.45,0.94)",
         }} />
@@ -193,7 +204,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-20 py-20">
+        <div className="container mx-auto px-4 md:px-6 relative z-20 pt-14 pb-12 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — text content */}
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
@@ -204,13 +215,13 @@ export default function Home() {
                   </Badge>
                 </a>
               </motion.div>
-              <motion.h1 variants={fadeUp} className="relative z-10 text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
+              <motion.h1 variants={fadeUp} className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-5">
                 Premium Care<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-violet-300">
                   Your Pet Deserves
                 </span>
               </motion.h1>
-              <motion.p variants={fadeUp} className="relative z-10 text-xl text-white/75 max-w-xl leading-relaxed mb-10">
+              <motion.p variants={fadeUp} className="relative z-10 text-base sm:text-xl text-white/75 max-w-xl leading-relaxed mb-8">
                 Dubai's trusted veterinary clinic offering world-class consultations, grooming, vaccinations, dental care, home visits, and pet taxi services in JLT.
               </motion.p>
               <motion.div variants={fadeUp} className="relative z-10 flex flex-wrap gap-4 mb-8 items-center">
@@ -286,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* SERVICES OVERVIEW */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
@@ -330,7 +341,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
@@ -360,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* GROOMING HIGHLIGHT */}
-      <section className="py-24 bg-gradient-to-br from-purple-50 to-blue-50">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial="hidden"
@@ -397,6 +408,8 @@ export default function Home() {
                   src="/grooming-dog.jpg"
                   alt="Professional pet grooming at Safe Care Veterinary Clinic"
                   className="w-full h-full object-cover rounded-3xl"
+                  loading="lazy"
+                  decoding="async"
                 />
                 {/* Floating label */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 flex items-center justify-between shadow-lg border border-white/60">
@@ -415,7 +428,7 @@ export default function Home() {
       </section>
 
       {/* PET TAXI + HOME VISITS */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Pet Taxi */}
@@ -474,7 +487,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
@@ -531,7 +544,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-12">
@@ -558,7 +571,7 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary to-accent text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-accent text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.div variants={fadeUp}>

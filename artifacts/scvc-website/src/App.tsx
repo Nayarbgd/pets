@@ -21,9 +21,9 @@ import MobileCTABar from "@/components/shared/MobileCTABar";
 const queryClient = new QueryClient();
 
 const pageVariants = {
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit:    { opacity: 0, y: -8,  transition: { duration: 0.22, ease: [0.55, 0, 1, 0.45] } },
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } },
+  exit:    { opacity: 0, y: -4, transition: { duration: 0.18, ease: [0.55, 0, 1, 0.45] } },
 };
 
 function AnimatedPage({ children }: { children: React.ReactNode }) {

@@ -21,7 +21,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      style={{ transform: `translateY(${pos}px)` }}
+      style={{ transform: `translateY(${pos}px)`, willChange: "transform" }}
       className="fixed bottom-24 md:bottom-8 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full flex items-center justify-center shadow-[0_4px_24px_rgba(37,211,102,0.45)] transition-colors hover:scale-110 active:scale-95"
     >
       <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white">
