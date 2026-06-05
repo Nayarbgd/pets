@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
+import SCVCLogo from "@/components/shared/SCVCLogo";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <img src="/scvc-logo.png" alt="SCVC Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+              <SCVCLogo className="h-8 w-auto" inverted />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg leading-tight text-white">Safe Care</span>
                 <span className="text-xs text-primary-foreground/80 font-medium uppercase tracking-wider">Veterinary Clinic</span>
