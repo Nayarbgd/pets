@@ -241,11 +241,13 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -255,6 +257,19 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+/* Mobile performance: disable heavy GPU-intensive animations */
+@media (max-width: 767px) {
+  .glow-animate-1,
+  .glow-animate-2 {
+    animation: none !important;
+  }
+
+  /* Lighten framer-motion will-change on mobile to reduce layer count */
+  [style*="will-change: transform"] {
+    will-change: auto !important;
   }
 }
 

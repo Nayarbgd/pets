@@ -18,13 +18,13 @@ import {
 } from "@/components/ui/accordion";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.07 } },
 };
 
 const services = [
@@ -93,48 +93,65 @@ export default function Home() {
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setMousePos({ x: 0, y: 0 })}
         className="relative min-h-[88vh] md:min-h-[92vh] flex items-center overflow-hidden"
-        style={{ background: "hsl(222, 58%, 9%)" }}
+        style={{ background: "hsl(222, 58%, 9%)", isolation: "isolate", contain: "paint" }}
       >
         {/* ── MESH GRADIENT BASE ── */}
         <div className="absolute inset-0" style={{
           background: "linear-gradient(135deg, hsl(222,60%,9%) 0%, hsl(228,55%,13%) 35%, hsl(248,50%,17%) 65%, hsl(265,42%,14%) 100%)",
         }} />
-        {/* Mesh node — upper-left indigo */}
-        <div className="absolute pointer-events-none" style={{
-          top: "-15%", left: "-8%", width: "65%", height: "75%",
-          background: "radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 65%)",
-          filter: "blur(50px)",
-          willChange: "transform",
-          transform: `translate(${mousePos.x * -5}px, ${mousePos.y * -3}px)`,
-          transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }} />
-        {/* Mesh node — upper-right rich purple */}
-        <div className="absolute pointer-events-none" style={{
-          top: "-8%", right: "-12%", width: "60%", height: "72%",
-          background: "radial-gradient(ellipse at center, rgba(124,58,237,0.16) 0%, transparent 65%)",
-          filter: "blur(55px)",
-          willChange: "transform",
-          transform: `translate(${mousePos.x * -4}px, ${mousePos.y * -2}px)`,
-          transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }} />
-        {/* Mesh node — bottom-centre blue */}
-        <div className="absolute pointer-events-none" style={{
-          bottom: "-15%", left: "25%", width: "55%", height: "60%",
-          background: "radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%)",
-          filter: "blur(60px)",
-          willChange: "transform",
-          transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
-          transition: "transform 1.6s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }} />
-        {/* Cinematic studio light — upper-right */}
-        <div className="absolute pointer-events-none" style={{
-          top: "-25%", right: "8%", width: "78%", height: "92%",
-          background: "radial-gradient(ellipse at 63% 28%, rgba(219,234,254,0.07) 0%, rgba(147,197,253,0.03) 38%, transparent 65%)",
-          filter: "blur(20px)",
-          willChange: "transform",
-          transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
-          transition: "transform 1.8s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }} />
+
+        {/* Heavy blur orbs — desktop only to preserve mobile performance */}
+        {!isTouch && (<>
+          {/* Mesh node — upper-left indigo */}
+          <div className="absolute pointer-events-none" style={{
+            top: "-15%", left: "-8%", width: "65%", height: "75%",
+            background: "radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 65%)",
+            filter: "blur(50px)",
+            willChange: "transform",
+            transform: `translate(${mousePos.x * -5}px, ${mousePos.y * -3}px)`,
+            transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }} />
+          {/* Mesh node — upper-right rich purple */}
+          <div className="absolute pointer-events-none" style={{
+            top: "-8%", right: "-12%", width: "60%", height: "72%",
+            background: "radial-gradient(ellipse at center, rgba(124,58,237,0.16) 0%, transparent 65%)",
+            filter: "blur(55px)",
+            willChange: "transform",
+            transform: `translate(${mousePos.x * -4}px, ${mousePos.y * -2}px)`,
+            transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }} />
+          {/* Mesh node — bottom-centre blue */}
+          <div className="absolute pointer-events-none" style={{
+            bottom: "-15%", left: "25%", width: "55%", height: "60%",
+            background: "radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%)",
+            filter: "blur(60px)",
+            willChange: "transform",
+            transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
+            transition: "transform 1.6s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }} />
+          {/* Cinematic studio light — upper-right */}
+          <div className="absolute pointer-events-none" style={{
+            top: "-25%", right: "8%", width: "78%", height: "92%",
+            background: "radial-gradient(ellipse at 63% 28%, rgba(219,234,254,0.07) 0%, rgba(147,197,253,0.03) 38%, transparent 65%)",
+            filter: "blur(20px)",
+            willChange: "transform",
+            transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
+            transition: "transform 1.8s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }} />
+        </>)}
+
+        {/* Mobile-only: lightweight static gradients (no blur, no animation) */}
+        {isTouch && (<>
+          <div className="absolute pointer-events-none" style={{
+            top: 0, left: 0, width: "100%", height: "100%",
+            background: "radial-gradient(ellipse at 20% 30%, rgba(99,102,241,0.22) 0%, transparent 55%)",
+          }} />
+          <div className="absolute pointer-events-none" style={{
+            top: 0, right: 0, width: "80%", height: "80%",
+            background: "radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.18) 0%, transparent 55%)",
+          }} />
+        </>)}
+
         {/* Fine grid texture */}
         <div className="absolute inset-0" style={{
           backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')",
@@ -210,7 +227,7 @@ export default function Home() {
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
               <motion.div variants={fadeUp} className="relative z-10">
                 <a href="https://maps.app.goo.gl/yXEY4UtJjbykt4ty9" target="_blank" rel="noopener noreferrer">
-                  <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+                  <Badge className="mb-6 bg-white/10 text-white border-white/20 px-4 py-1.5 text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
                     <MapPin className="w-3.5 h-3.5 mr-1.5" /> Jumeirah Lakes Towers, Dubai
                   </Badge>
                 </a>
@@ -232,7 +249,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <a href="tel:+97148343287">
-                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 h-14 px-8 text-base backdrop-blur-sm" data-testid="button-hero-call">
+                  <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 h-14 px-8 text-base" data-testid="button-hero-call">
                     <Phone className="w-5 h-5 mr-2" />
                     Call Now
                   </Button>
@@ -245,7 +262,7 @@ export default function Home() {
                 </a>
 
                 {/* Rating badge — inline after WhatsApp */}
-                <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3">
+                <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-2xl px-5 py-3">
                   <div className="flex">
                     {[1,2,3,4,5].map(i => (
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -272,7 +289,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={stagger}
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
@@ -299,7 +316,7 @@ export default function Home() {
       {/* SERVICES OVERVIEW */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">Our Services</Badge>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -343,7 +360,7 @@ export default function Home() {
       {/* WHY CHOOSE US */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Badge variant="outline" className="mb-4 text-accent border-accent/20 bg-accent/5">Why SCVC</Badge>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -376,7 +393,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={stagger}
             className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
@@ -432,7 +449,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Pet Taxi */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={fadeUp}>
               <Card className="h-full overflow-hidden border border-border/50 group hover:shadow-xl transition-all duration-300">
                 <div className="bg-gradient-to-br from-orange-500 to-amber-500 p-8 text-white">
                   <Car className="w-12 h-12 mb-4 opacity-90" />
@@ -458,7 +475,7 @@ export default function Home() {
             </motion.div>
 
             {/* Home Visits */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={fadeUp}>
               <Card className="h-full overflow-hidden border border-border/50 group hover:shadow-xl transition-all duration-300">
                 <div className="bg-gradient-to-br from-primary to-accent p-8 text-white">
                   <HomeIcon className="w-12 h-12 mb-4 opacity-90" />
@@ -489,7 +506,7 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-16">
               <Badge variant="outline" className="mb-4 text-yellow-600 border-yellow-200 bg-yellow-50">Reviews</Badge>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -546,7 +563,7 @@ export default function Home() {
       {/* FAQ */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
             <motion.div variants={fadeUp} className="text-center mb-12">
               <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">FAQ</Badge>
               <h2 className="text-4xl font-serif font-bold text-foreground mb-4">Common Questions</h2>
@@ -573,7 +590,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-accent text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
             <motion.div variants={fadeUp}>
               <div className="flex justify-center gap-2 mb-6">
                 <Cat className="w-8 h-8 opacity-80" />

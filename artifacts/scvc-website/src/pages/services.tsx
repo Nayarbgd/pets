@@ -145,13 +145,13 @@ export default function Services() {
             <motion.div variants={fadeUp}>
               <Badge className="mb-6 bg-white/10 border-white/20 text-white">Our Services</Badge>
             </motion.div>
-            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
               Comprehensive Pet Care<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-violet-300">
                 Under One Roof
               </span>
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-xl text-white/75 max-w-2xl mx-auto">
+            <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-white/75 max-w-2xl mx-auto">
               From routine consultations to specialist treatments, grooming to home visits — everything your pet needs, delivered with expertise and care in JLT, Dubai.
             </motion.p>
           </motion.div>
