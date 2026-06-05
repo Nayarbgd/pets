@@ -96,17 +96,6 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* LEFT — text content */}
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
-              {/* Bone — decorative, diagonal, behind the "P" of Premium */}
-              <motion.img
-                src="/hero-animals.png"
-                alt=""
-                aria-hidden="true"
-                initial={{ opacity: 0, rotate: -42, scale: 0.5 }}
-                animate={{ opacity: 0.35, rotate: -40, scale: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
-                className="absolute w-[120px] top-[58px] left-[-28px] z-0 pointer-events-none drop-shadow-[0_8px_20px_rgba(0,0,0,0.4)]"
-              />
-
               <motion.div variants={fadeUp} className="relative z-10">
                 <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
                   <MapPin className="w-3.5 h-3.5 mr-1.5" /> Jumeirah Lakes Towers, Dubai
