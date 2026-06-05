@@ -197,26 +197,31 @@ export default function Contact() {
               {/* Location */}
               <div>
                 <h2 className="text-3xl font-serif font-bold text-foreground mb-6">Find Us</h2>
-                <div className="rounded-2xl overflow-hidden border border-border/50 shadow-sm mb-6" style={{ height: "260px" }}>
+                <a href="https://maps.app.goo.gl/yXEY4UtJjbykt4ty9" target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden border border-border/50 shadow-sm mb-6 relative group" style={{ height: "260px" }}>
                   <iframe
                     src="https://maps.google.com/maps?q=Jumeirah+Bay+X2+JLT+Dubai&output=embed"
                     width="100%"
                     height="100%"
-                    style={{ border: 0 }}
+                    style={{ border: 0, pointerEvents: "none" }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="SCVC Location"
                     data-testid="map-scvc-location"
                   />
-                </div>
-                <div className="flex items-start gap-3">
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow flex items-center gap-2">
+                      <MapPin className="w-4 h-4" /> Open in Google Maps
+                    </span>
+                  </div>
+                </a>
+                <a href="https://maps.app.goo.gl/yXEY4UtJjbykt4ty9" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:opacity-80 transition-opacity">
                   <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <div className="font-semibold text-foreground">Safe Care Veterinary Clinic</div>
                     <p className="text-muted-foreground text-sm">Jumeirah Bay X2, Shop 7<br />Jumeirah Lakes Towers (JLT), Dubai, UAE</p>
                   </div>
-                </div>
+                </a>
               </div>
 
               {/* Opening Hours */}

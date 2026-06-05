@@ -198,9 +198,11 @@ export default function Home() {
             {/* LEFT — text content */}
             <motion.div initial="hidden" animate="visible" variants={stagger} className="relative">
               <motion.div variants={fadeUp} className="relative z-10">
-                <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
-                  <MapPin className="w-3.5 h-3.5 mr-1.5" /> Jumeirah Lakes Towers, Dubai
-                </Badge>
+                <a href="https://maps.app.goo.gl/yXEY4UtJjbykt4ty9" target="_blank" rel="noopener noreferrer">
+                  <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium hover:bg-white/20 transition-colors cursor-pointer">
+                    <MapPin className="w-3.5 h-3.5 mr-1.5" /> Jumeirah Lakes Towers, Dubai
+                  </Badge>
+                </a>
               </motion.div>
               <motion.h1 variants={fadeUp} className="relative z-10 text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
                 Premium Care<br />

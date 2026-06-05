@@ -60,11 +60,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/80 text-sm">
+                <a href="https://maps.app.goo.gl/yXEY4UtJjbykt4ty9" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-white text-sm transition-colors">
                   Jumeirah Bay X2, Shop 7<br />
                   Jumeirah Lakes Towers (JLT)<br />
                   Dubai, UAE
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
