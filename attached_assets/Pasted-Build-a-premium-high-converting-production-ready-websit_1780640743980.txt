@@ -1,0 +1,310 @@
+Build a premium, high-converting, production-ready website for a real veterinary clinic in Dubai.
+
+IMPORTANT TECHNICAL REQUIREMENTS
+
+- Use React + Vite only.
+- Compatible with GitHub and Vercel.
+- Must successfully run:
+  npm install
+  npm run build
+- No Replit-specific dependencies.
+- No backend.
+- No database.
+- No server-side code.
+- No unnecessary libraries.
+- Clean and scalable code architecture.
+- Professional folder structure.
+- Mobile-first responsive design.
+- Fast loading and optimized performance.
+- Modern UI/UX.
+- SEO-friendly structure.
+
+BUSINESS INFORMATION
+
+Business Name:
+Safe Care Veterinary Clinic (SCVC)
+
+Location:
+Jumeirah Bay X2, Shop 7
+Jumeirah Lakes Towers (JLT)
+Dubai, UAE
+
+Phone:
++971 4 834 3287
+
+Website:
+scvc.ae
+
+Google Rating:
+4.7 Stars
+
+Reviews:
+113+ Reviews
+
+SERVICES
+
+- Veterinary Consultation
+- Pet Grooming
+- Vaccinations
+- Dental Care
+- Pet Taxi Service
+- Home Visits
+- Pet Health Checkups
+- Preventive Care
+- Cat Care
+- Dog Care
+
+BUSINESS GOALS
+
+The website must maximize:
+
+- Appointment bookings
+- Phone calls
+- WhatsApp inquiries
+- Trust
+- Local SEO visibility
+
+TARGET AUDIENCE
+
+Pet owners in Dubai looking for trusted veterinary care, grooming services, vaccinations, emergency assistance, pet transportation, and home veterinary visits.
+
+DESIGN DIRECTION
+
+Create a premium healthcare-style design.
+
+The website should feel like a modern Dubai veterinary clinic that inspires trust immediately.
+
+Visual style:
+
+- Premium
+- Elegant
+- Modern
+- Clean
+- Friendly
+- High-end
+
+Color Palette:
+
+- Soft medical blue
+- Premium purple accents
+- White backgrounds
+- Light gray sections
+- Modern gradients
+
+Typography:
+
+- Clean and professional
+- Strong visual hierarchy
+- Excellent readability
+
+UI FEATURES
+
+- Smooth animations
+- Subtle hover effects
+- Modern cards
+- Rounded corners
+- Soft shadows
+- Interactive elements
+- Smooth scrolling
+- Professional spacing
+- Mobile-first experience
+
+NAVIGATION
+
+Create a sticky navigation bar.
+
+Menu items:
+
+- Home
+- Services
+- About
+- Reviews
+- Contact
+- Book Appointment
+
+All navigation items should open dedicated pages using React Router.
+
+PAGES
+
+HOME PAGE
+
+Hero Section
+
+Include:
+
+- Strong headline
+- Supporting text
+- CTA buttons:
+  Book Appointment
+  Call Now
+  WhatsApp
+
+Trust Section
+
+Display:
+
+- 4.7 Rating
+- 113+ Reviews
+- Experienced Team
+- Trusted Veterinary Care
+
+Services Overview
+
+Feature cards for:
+
+- Consultations
+- Grooming
+- Vaccinations
+- Dental Care
+- Pet Taxi
+- Home Visits
+
+Why Choose Us
+
+Include:
+
+- Compassionate Care
+- Experienced Veterinarians
+- Modern Equipment
+- Convenient Services
+- Home Visits Available
+- Pet Taxi Available
+
+Testimonials Section
+
+Display modern review cards.
+
+Use realistic review content based on:
+
+- Friendly staff
+- Caring veterinarians
+- Professional grooming
+- Convenient pet taxi service
+- Excellent pet care
+
+Pet Grooming Section
+
+Highlight:
+
+- Bathing
+- Haircuts
+- Nail Trimming
+- Ear Cleaning
+
+Pet Taxi Section
+
+Promote pickup and drop-off service.
+
+Home Visit Section
+
+Explain convenience for pet owners.
+
+FAQ Section
+
+Include common veterinary questions.
+
+Final CTA Section
+
+Strong booking call-to-action.
+
+SERVICES PAGE
+
+Create a professional services page with detailed service cards.
+
+Each service should include:
+
+- Description
+- Benefits
+- Process
+- CTA Button
+
+ABOUT PAGE
+
+Include:
+
+- Clinic Mission
+- Clinic Values
+- Why We Started
+- Team Section
+- Facility Overview
+
+REVIEWS PAGE
+
+Dedicated review page.
+
+Display:
+
+- Overall rating
+- Customer testimonials
+- Success stories
+
+CONTACT PAGE
+
+Include:
+
+- Contact form
+- Phone number
+- Email placeholder
+- Address
+- Google Maps placeholder
+- Opening hours
+
+BOOK APPOINTMENT PAGE
+
+Create a premium booking interface.
+
+Fields:
+
+- Pet Owner Name
+- Phone Number
+- Email
+- Pet Name
+- Pet Type
+- Service Needed
+- Preferred Date
+- Preferred Time
+- Notes
+
+No backend required.
+
+Simulate successful submission using frontend state.
+
+CONVERSION FEATURES
+
+Implement:
+
+- Floating WhatsApp Button
+- Sticky Mobile CTA
+- Click-to-call button
+- Multiple booking buttons
+- Trust indicators
+- Review highlights
+- Strong CTA placement
+
+SEO REQUIREMENTS
+
+Implement:
+
+- Semantic HTML
+- Proper heading hierarchy
+- Meta title placeholders
+- Meta description placeholders
+- Open Graph placeholders
+- Local SEO content
+- Accessible markup
+
+PERFORMANCE REQUIREMENTS
+
+- Optimized components
+- Lazy-loaded pages
+- Responsive images
+- Fast build
+- Clean production code
+
+FINAL REQUIREMENTS
+
+The final result should look like a premium veterinary clinic website from Dubai that could realistically be sold to a paying client.
+
+The website must feel modern, trustworthy, highly professional, conversion-focused, and significantly more premium than a typical local veterinary clinic website.
+
+Generate the complete React + Vite project.

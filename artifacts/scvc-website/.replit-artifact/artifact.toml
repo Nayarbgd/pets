@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Safe Care Veterinary Clinic"
+version = "1.0.0"
+id = "artifacts/scvc-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22428
+
+[services.development]
+run = "pnpm --filter @workspace/scvc-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/scvc-website", "run", "build" ]
+publicDir = "artifacts/scvc-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22428"
+BASE_PATH = "/"
