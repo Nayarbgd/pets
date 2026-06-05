@@ -190,39 +190,6 @@ export default function Home() {
               }}
             />
 
-            {/* ── Floating glassmorphism trust card ── */}
-            {/* Parallax layer for the card (counter-moves slightly) */}
-            <div style={{
-              position: "absolute", top: "16%", left: "3%", zIndex: 20,
-              transform: `translate(${mousePos.x * -6}px, ${mousePos.y * -4}px)`,
-              transition: "transform 1s cubic-bezier(0.25,0.46,0.45,0.94)",
-            }}>
-              {/* Float animation wrapper */}
-              <div style={{ animation: "trustFloat 7s ease-in-out infinite" }}>
-                <div style={{
-                  background: "rgba(255,255,255,0.07)",
-                  backdropFilter: "blur(24px)",
-                  WebkitBackdropFilter: "blur(24px)",
-                  border: "1px solid rgba(255,255,255,0.11)",
-                  borderRadius: "18px",
-                  padding: "13px 20px",
-                  display: "flex", alignItems: "center", gap: "12px",
-                  boxShadow: "0 8px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.07)",
-                }}>
-                  <div style={{ display: "flex", gap: "1px" }}>
-                    {[1,2,3,4,5].map(i => (
-                      <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#facc15">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                      </svg>
-                    ))}
-                  </div>
-                  <div>
-                    <div style={{ color: "rgba(255,255,255,0.95)", fontWeight: 700, fontSize: 13, lineHeight: 1.25, letterSpacing: "-0.01em" }}>4.7 / 5</div>
-                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, marginTop: 1 }}>113+ verified reviews</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 
