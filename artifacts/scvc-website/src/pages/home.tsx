@@ -77,7 +77,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-[-80px] w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 py-20">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <motion.div variants={fadeUp}>
                 <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-medium">
@@ -113,6 +113,35 @@ export default function Home() {
                   </Button>
                 </a>
               </motion.div>
+            </motion.div>
+
+            {/* Hero image — animals */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              className="hidden lg:flex items-center justify-center relative"
+            >
+              {/* Soft glow behind image */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-accent/25 blur-[90px]" />
+              {/* Image — transparent PNG floats on the hero gradient */}
+              <img
+                src="/hero-animals.png"
+                alt="Happy pets cared for at Safe Care Veterinary Clinic Dubai"
+                className="relative z-10 w-full max-w-[520px] drop-shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+              />
+              {/* Floating trust badge */}
+              <div className="absolute bottom-4 left-2 z-20 bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+                <div className="flex">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <div>
+                  <div className="text-white font-bold text-sm leading-tight">4.7 / 5</div>
+                  <div className="text-white/70 text-xs">113+ verified reviews</div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -255,20 +284,21 @@ export default function Home() {
               </Link>
             </motion.div>
             <motion.div variants={fadeUp} className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-border/40">
-                <div className="grid grid-cols-2 gap-6">
-                  {[
-                    { icon: "🛁", title: "Luxury Bath", desc: "Premium shampoos & conditioners" },
-                    { icon: "✂️", title: "Expert Styling", desc: "Breed-appropriate cuts" },
-                    { icon: "💅", title: "Nail Care", desc: "Trimming & filing" },
-                    { icon: "👂", title: "Ear Cleaning", desc: "Safe & gentle procedure" },
-                  ].map((item, i) => (
-                    <div key={i} className="p-4 rounded-2xl bg-muted/40 text-center">
-                      <div className="text-3xl mb-2">{item.icon}</div>
-                      <div className="font-bold text-sm text-foreground mb-1">{item.title}</div>
-                      <div className="text-xs text-muted-foreground">{item.desc}</div>
-                    </div>
-                  ))}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/grooming-image.png"
+                  alt="Professional pet grooming at Safe Care Veterinary Clinic"
+                  className="w-full h-full object-cover rounded-3xl"
+                />
+                {/* Floating label */}
+                <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 flex items-center justify-between shadow-lg border border-white/60">
+                  <div>
+                    <div className="font-bold text-foreground text-sm">Professional Grooming</div>
+                    <div className="text-muted-foreground text-xs">Salon-quality results every time</div>
+                  </div>
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600">
+                    <Scissors className="w-5 h-5" />
+                  </div>
                 </div>
               </div>
             </motion.div>
