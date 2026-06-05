@@ -152,6 +152,87 @@ export default function Home() {
             <div className="hidden lg:block" />
           </div>
         </div>
+
+        {/* PAW PRINT TRAILS — dog (lower) + cat (upper), walking left → right */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none hidden lg:block z-10">
+          {/* Dog paws — larger, lower row */}
+          {([
+            { x: 48,  y: 22, r: 12,  mx: 1  },
+            { x: 122, y: 34, r: -12, mx: -1 },
+            { x: 198, y: 20, r: 12,  mx: 1  },
+            { x: 274, y: 32, r: -12, mx: -1 },
+            { x: 352, y: 18, r: 12,  mx: 1  },
+            { x: 428, y: 30, r: -12, mx: -1 },
+            { x: 506, y: 16, r: 12,  mx: 1  },
+            { x: 582, y: 28, r: -12, mx: -1 },
+            { x: 660, y: 14, r: 12,  mx: 1  },
+            { x: 736, y: 26, r: -12, mx: -1 },
+          ] as Array<{x:number,y:number,r:number,mx:number}>).map((p, i) => (
+            <div
+              key={`dog-${i}`}
+              style={{
+                position: "absolute",
+                left: p.x,
+                bottom: p.y,
+                transform: `rotate(${p.r}deg) scaleX(${p.mx})`,
+              }}
+            >
+              <svg
+                width="32" height="36" viewBox="0 0 28 31" fill="rgba(255,255,255,0.32)"
+                style={{
+                  animation: `pawFadeIn 0.5s ease both`,
+                  animationDelay: `${0.5 + i * 0.08}s`,
+                  animationFillMode: "both",
+                } as React.CSSProperties}
+              >
+                <ellipse cx="14" cy="22" rx="8"   ry="7"   />
+                <ellipse cx="4"  cy="12" rx="3.5" ry="3"   />
+                <ellipse cx="10" cy="7"  rx="3.5" ry="3"   />
+                <ellipse cx="18" cy="7"  rx="3.5" ry="3"   />
+                <ellipse cx="24" cy="12" rx="3.5" ry="3"   />
+              </svg>
+            </div>
+          ))}
+          {/* Cat paws — smaller, upper row */}
+          {([
+            { x: 82,  y: 62, r: 10,  mx: 1  },
+            { x: 152, y: 72, r: -10, mx: -1 },
+            { x: 222, y: 60, r: 10,  mx: 1  },
+            { x: 294, y: 70, r: -10, mx: -1 },
+            { x: 366, y: 58, r: 10,  mx: 1  },
+            { x: 438, y: 68, r: -10, mx: -1 },
+            { x: 512, y: 56, r: 10,  mx: 1  },
+            { x: 584, y: 66, r: -10, mx: -1 },
+            { x: 658, y: 54, r: 10,  mx: 1  },
+            { x: 730, y: 64, r: -10, mx: -1 },
+            { x: 804, y: 52, r: 10,  mx: 1  },
+          ] as Array<{x:number,y:number,r:number,mx:number}>).map((p, i) => (
+            <div
+              key={`cat-${i}`}
+              style={{
+                position: "absolute",
+                left: p.x,
+                bottom: p.y,
+                transform: `rotate(${p.r}deg) scaleX(${p.mx})`,
+              }}
+            >
+              <svg
+                width="22" height="25" viewBox="0 0 24 27" fill="rgba(255,255,255,0.24)"
+                style={{
+                  animation: `pawFadeIn 0.5s ease both`,
+                  animationDelay: `${0.55 + i * 0.08}s`,
+                  animationFillMode: "both",
+                } as React.CSSProperties}
+              >
+                <ellipse cx="12" cy="19" rx="7"   ry="6"   />
+                <ellipse cx="3.5" cy="11" rx="3"  ry="2.5" />
+                <ellipse cx="9"   cy="7"  rx="3"  ry="2.5" />
+                <ellipse cx="15"  cy="7"  rx="3"  ry="2.5" />
+                <ellipse cx="20.5" cy="11" rx="3" ry="2.5" />
+              </svg>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* TRUST BAR */}
