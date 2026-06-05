@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import {
   Phone, MessageCircle, Calendar, Star, MapPin, Shield, Heart,
   Stethoscope, Scissors, Syringe, Smile, Car, Home as HomeIcon,
@@ -64,6 +64,16 @@ const faqs = [
 ];
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const rect = heroRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+    const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    setMousePos({ x, y });
+  }, []);
+
   useEffect(() => {
     document.title = "Safe Care Veterinary Clinic Dubai | Premium Vet Care in JLT";
   }, []);
@@ -71,71 +81,150 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-br from-[hsl(218,53%,14%)] via-[hsl(218,53%,22%)] to-[hsl(262,47%,28%)]">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40" />
-        <div className="absolute top-20 right-[-100px] w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px]" />
-        <div className="absolute bottom-0 left-[-80px] w-[400px] h-[400px] rounded-full bg-primary/20 blur-[100px]" />
+      <section
+        ref={heroRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setMousePos({ x: 0, y: 0 })}
+        className="relative min-h-[92vh] flex items-center overflow-hidden"
+        style={{ background: "hsl(222, 58%, 9%)" }}
+      >
+        {/* ── MESH GRADIENT BASE ── */}
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(135deg, hsl(222,60%,9%) 0%, hsl(228,55%,13%) 35%, hsl(248,50%,17%) 65%, hsl(265,42%,14%) 100%)",
+        }} />
+        {/* Mesh node — upper-left indigo */}
+        <div className="absolute" style={{
+          top: "-15%", left: "-8%", width: "65%", height: "75%",
+          background: "radial-gradient(ellipse at center, rgba(99,102,241,0.18) 0%, transparent 65%)",
+          filter: "blur(50px)",
+          transform: `translate(${mousePos.x * -5}px, ${mousePos.y * -3}px)`,
+          transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
+        }} />
+        {/* Mesh node — upper-right rich purple */}
+        <div className="absolute" style={{
+          top: "-8%", right: "-12%", width: "60%", height: "72%",
+          background: "radial-gradient(ellipse at center, rgba(124,58,237,0.16) 0%, transparent 65%)",
+          filter: "blur(55px)",
+          transform: `translate(${mousePos.x * -4}px, ${mousePos.y * -2}px)`,
+          transition: "transform 1.4s cubic-bezier(0.25,0.46,0.45,0.94)",
+        }} />
+        {/* Mesh node — bottom-centre blue */}
+        <div className="absolute" style={{
+          bottom: "-15%", left: "25%", width: "55%", height: "60%",
+          background: "radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%)",
+          filter: "blur(60px)",
+          transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
+          transition: "transform 1.6s cubic-bezier(0.25,0.46,0.45,0.94)",
+        }} />
+        {/* Cinematic studio light — upper-right */}
+        <div className="absolute" style={{
+          top: "-25%", right: "8%", width: "78%", height: "92%",
+          background: "radial-gradient(ellipse at 63% 28%, rgba(219,234,254,0.07) 0%, rgba(147,197,253,0.03) 38%, transparent 65%)",
+          filter: "blur(20px)",
+          transform: `translate(${mousePos.x * -3}px, ${mousePos.y * -2}px)`,
+          transition: "transform 1.8s cubic-bezier(0.25,0.46,0.45,0.94)",
+        }} />
+        {/* Fine grid texture */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')",
+          opacity: 0.15,
+        }} />
 
-        {/* Pet image — absolutely anchored bottom-right, large */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
-          className="absolute bottom-0 right-0 w-[52%] max-w-[760px] z-10 pointer-events-none hidden lg:block"
+        {/* ── PET IMAGE — parallax outer wrapper ── */}
+        <div
+          className="absolute bottom-0 right-0 w-[58%] max-w-[860px] hidden lg:block pointer-events-none"
+          style={{
+            transform: `translate(${mousePos.x * 12}px, ${mousePos.y * 8}px)`,
+            transition: "transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94)",
+            zIndex: 10,
+          }}
         >
-          {/* Blue glow — behind the dog (right side) */}
-          <div
-            style={{
-              position: "absolute",
-              right: "-8%",
-              top: "5%",
-              width: "65%",
-              height: "70%",
-              background: "radial-gradient(ellipse at center, rgba(99,179,237,0.28) 0%, rgba(66,153,225,0.14) 45%, transparent 75%)",
-              filter: "blur(48px)",
-              borderRadius: "50%",
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+            className="relative"
+          >
+            {/* Blue glow — dog (right) */}
+            <div style={{
+              position: "absolute", right: "-8%", top: "5%",
+              width: "65%", height: "70%",
+              background: "radial-gradient(ellipse at center, rgba(99,179,237,0.30) 0%, rgba(66,153,225,0.15) 45%, transparent 75%)",
+              filter: "blur(52px)", borderRadius: "50%",
               animation: "glowFloat1 16s ease-in-out infinite",
-              zIndex: 1,
-              willChange: "transform",
-            }}
-          />
-          {/* Purple glow — behind the cat (left side) */}
-          <div
-            style={{
-              position: "absolute",
-              left: "-6%",
-              top: "10%",
-              width: "60%",
-              height: "65%",
-              background: "radial-gradient(ellipse at center, rgba(167,139,250,0.26) 0%, rgba(139,92,246,0.13) 45%, transparent 75%)",
-              filter: "blur(52px)",
-              borderRadius: "50%",
+              zIndex: 1, willChange: "transform",
+            }} />
+            {/* Purple glow — cat (left) */}
+            <div style={{
+              position: "absolute", left: "-6%", top: "10%",
+              width: "62%", height: "68%",
+              background: "radial-gradient(ellipse at center, rgba(167,139,250,0.28) 0%, rgba(139,92,246,0.14) 45%, transparent 75%)",
+              filter: "blur(56px)", borderRadius: "50%",
               animation: "glowFloat2 20s ease-in-out infinite",
-              zIndex: 1,
-              willChange: "transform",
-            }}
-          />
-          {/* Soft base ambient glow — fills centre, blends everything */}
-          <div
-            style={{
-              position: "absolute",
-              left: "10%",
-              top: "20%",
-              width: "80%",
-              height: "55%",
-              background: "radial-gradient(ellipse at center, rgba(129,140,248,0.12) 0%, transparent 70%)",
-              filter: "blur(60px)",
-              borderRadius: "50%",
-              zIndex: 1,
-            }}
-          />
-          <img
-            src="/grooming-image.png"
-            alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
-            className="relative w-full drop-shadow-[0_0_60px_rgba(138,92,246,0.35)]"
-            style={{ position: "relative", zIndex: 2 }}
-          />
-        </motion.div>
+              zIndex: 1, willChange: "transform",
+            }} />
+            {/* Ambient centre glow */}
+            <div style={{
+              position: "absolute", left: "10%", top: "20%",
+              width: "80%", height: "55%",
+              background: "radial-gradient(ellipse at center, rgba(129,140,248,0.13) 0%, transparent 70%)",
+              filter: "blur(64px)", borderRadius: "50%", zIndex: 1,
+            }} />
+            {/* Ground depth — bottom fade into background */}
+            <div style={{
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "32%",
+              background: "linear-gradient(to top, rgba(10,16,38,0.65) 0%, transparent 100%)",
+              zIndex: 3,
+            }} />
+
+            {/* Pet image — gentle breathing */}
+            <img
+              src="/grooming-image.png"
+              alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
+              className="relative w-full"
+              style={{
+                position: "relative", zIndex: 2,
+                animation: "petBreathe 9s ease-in-out infinite",
+                filter: "drop-shadow(0 0 80px rgba(138,92,246,0.40)) drop-shadow(0 40px 60px rgba(0,0,0,0.45))",
+                willChange: "transform",
+              }}
+            />
+
+            {/* ── Floating glassmorphism trust card ── */}
+            {/* Parallax layer for the card (counter-moves slightly) */}
+            <div style={{
+              position: "absolute", top: "16%", left: "3%", zIndex: 20,
+              transform: `translate(${mousePos.x * -6}px, ${mousePos.y * -4}px)`,
+              transition: "transform 1s cubic-bezier(0.25,0.46,0.45,0.94)",
+            }}>
+              {/* Float animation wrapper */}
+              <div style={{ animation: "trustFloat 7s ease-in-out infinite" }}>
+                <div style={{
+                  background: "rgba(255,255,255,0.07)",
+                  backdropFilter: "blur(24px)",
+                  WebkitBackdropFilter: "blur(24px)",
+                  border: "1px solid rgba(255,255,255,0.11)",
+                  borderRadius: "18px",
+                  padding: "13px 20px",
+                  display: "flex", alignItems: "center", gap: "12px",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.07)",
+                }}>
+                  <div style={{ display: "flex", gap: "1px" }}>
+                    {[1,2,3,4,5].map(i => (
+                      <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#facc15">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                      </svg>
+                    ))}
+                  </div>
+                  <div>
+                    <div style={{ color: "rgba(255,255,255,0.95)", fontWeight: 700, fontSize: 13, lineHeight: 1.25, letterSpacing: "-0.01em" }}>4.7 / 5</div>
+                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, marginTop: 1 }}>113+ verified reviews</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         <div className="container mx-auto px-4 md:px-6 relative z-20 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -195,86 +284,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PAW PRINT TRAILS — dog (lower) + cat (upper), walking left → right */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none hidden lg:block z-10">
-          {/* Dog paws — larger, lower row */}
-          {([
-            { x: 48,  y: 22, r: 12,  mx: 1  },
-            { x: 122, y: 34, r: -12, mx: -1 },
-            { x: 198, y: 20, r: 12,  mx: 1  },
-            { x: 274, y: 32, r: -12, mx: -1 },
-            { x: 352, y: 18, r: 12,  mx: 1  },
-            { x: 428, y: 30, r: -12, mx: -1 },
-            { x: 506, y: 16, r: 12,  mx: 1  },
-            { x: 582, y: 28, r: -12, mx: -1 },
-            { x: 660, y: 14, r: 12,  mx: 1  },
-            { x: 736, y: 26, r: -12, mx: -1 },
-          ] as Array<{x:number,y:number,r:number,mx:number}>).map((p, i) => (
-            <div
-              key={`dog-${i}`}
-              style={{
-                position: "absolute",
-                left: p.x,
-                bottom: p.y,
-                transform: `rotate(${p.r}deg) scaleX(${p.mx})`,
-              }}
-            >
-              <svg
-                width="32" height="36" viewBox="0 0 28 31" fill="rgba(255,255,255,0.32)"
-                style={{
-                  animation: `pawFadeIn 0.5s ease both`,
-                  animationDelay: `${0.5 + i * 0.08}s`,
-                  animationFillMode: "both",
-                } as React.CSSProperties}
-              >
-                <ellipse cx="14" cy="22" rx="8"   ry="7"   />
-                <ellipse cx="4"  cy="12" rx="3.5" ry="3"   />
-                <ellipse cx="10" cy="7"  rx="3.5" ry="3"   />
-                <ellipse cx="18" cy="7"  rx="3.5" ry="3"   />
-                <ellipse cx="24" cy="12" rx="3.5" ry="3"   />
-              </svg>
-            </div>
-          ))}
-          {/* Cat paws — smaller, upper row */}
-          {([
-            { x: 82,  y: 62, r: 10,  mx: 1  },
-            { x: 152, y: 72, r: -10, mx: -1 },
-            { x: 222, y: 60, r: 10,  mx: 1  },
-            { x: 294, y: 70, r: -10, mx: -1 },
-            { x: 366, y: 58, r: 10,  mx: 1  },
-            { x: 438, y: 68, r: -10, mx: -1 },
-            { x: 512, y: 56, r: 10,  mx: 1  },
-            { x: 584, y: 66, r: -10, mx: -1 },
-            { x: 658, y: 54, r: 10,  mx: 1  },
-            { x: 730, y: 64, r: -10, mx: -1 },
-            { x: 804, y: 52, r: 10,  mx: 1  },
-          ] as Array<{x:number,y:number,r:number,mx:number}>).map((p, i) => (
-            <div
-              key={`cat-${i}`}
-              style={{
-                position: "absolute",
-                left: p.x,
-                bottom: p.y,
-                transform: `rotate(${p.r}deg) scaleX(${p.mx})`,
-              }}
-            >
-              <svg
-                width="22" height="25" viewBox="0 0 24 27" fill="rgba(255,255,255,0.24)"
-                style={{
-                  animation: `pawFadeIn 0.5s ease both`,
-                  animationDelay: `${0.55 + i * 0.08}s`,
-                  animationFillMode: "both",
-                } as React.CSSProperties}
-              >
-                <ellipse cx="12" cy="19" rx="7"   ry="6"   />
-                <ellipse cx="3.5" cy="11" rx="3"  ry="2.5" />
-                <ellipse cx="9"   cy="7"  rx="3"  ry="2.5" />
-                <ellipse cx="15"  cy="7"  rx="3"  ry="2.5" />
-                <ellipse cx="20.5" cy="11" rx="3" ry="2.5" />
-              </svg>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* TRUST BAR */}

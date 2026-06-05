@@ -1,0 +1,160 @@
+Transform the current hero section into a premium, luxury-grade veterinary website hero that feels comparable to modern SaaS leaders like Stripe, Linear, Raycast, Vercel, Notion and high-end healthcare brands.
+
+IMPORTANT:
+
+Do not add more content.
+Do not add more buttons.
+Do not add more text.
+Do not clutter the layout.
+
+Focus exclusively on increasing the perceived quality, depth, atmosphere, visual hierarchy and premium feel.
+
+HERO IMPROVEMENTS
+
+1. REMOVE THE PAW PATTERNS
+
+Remove all decorative paw prints currently displayed near the bottom of the hero section.
+
+They reduce the premium feel and make the design feel more generic.
+
+Replace them with subtle depth effects instead.
+
+2. PREMIUM MESH GRADIENT BACKGROUND
+
+Upgrade the hero background into a sophisticated mesh gradient.
+
+Requirements:
+
+* Deep navy blue base
+* Rich indigo transitions
+* Soft premium purple accents
+* Multiple gradient layers
+* No visible hard edges
+* No obvious shapes
+* Smooth blending
+* Luxury healthcare aesthetic
+
+The background should feel expensive and modern.
+
+3. CINEMATIC AMBIENT LIGHTING
+
+Add subtle environmental lighting.
+
+Requirements:
+
+* Large radial light source in the upper-right area
+* Soft white-blue tone
+* Extremely low opacity
+* Very smooth falloff
+* Creates depth and dimension
+* Mimics professional studio lighting
+
+The effect should be felt more than seen.
+
+4. ENHANCE THE PET FOCAL POINT
+
+Increase the size of the dog and cat image by approximately 10–15%.
+
+Maintain visual balance.
+
+The pets should become the primary visual anchor on the right side.
+
+Do not crop them.
+
+5. PREMIUM DEPTH EFFECTS
+
+Create stronger separation between:
+
+* Background
+* Lighting
+* Pets
+* Content
+
+Use:
+
+* Layered shadows
+* Soft glows
+* Depth gradients
+* Atmospheric lighting
+
+The pets should feel integrated into the environment rather than placed on top of it.
+
+6. GLASSMORPHISM TRUST CARD
+
+Add a single floating premium glass card above and slightly left of the pets.
+
+Content:
+
+⭐ 4.7 Rating
+113+ Verified Reviews
+
+Requirements:
+
+* Frosted glass effect
+* Subtle transparency
+* Soft blur
+* Thin border
+* Premium shadow
+* Small and elegant
+* Floating animation
+* Not distracting
+
+The card should communicate trust instantly.
+
+7. SUBTLE PARALLAX
+
+Add a premium mouse-based parallax effect.
+
+Requirements:
+
+* Very subtle movement
+* Smooth interpolation
+* GPU accelerated transforms
+* Maximum movement 10–15px
+* Pets move slightly
+* Trust card moves slightly less
+* Background glows move even less
+
+Create a layered depth illusion.
+
+8. PREMIUM MICRO-ANIMATIONS
+
+Add subtle motion throughout the hero.
+
+Requirements:
+
+* Slow floating glow movement
+* Gentle breathing effect on the pet image
+* Smooth hover interactions
+* Premium easing functions
+
+No exaggerated animations.
+
+Everything should feel elegant and expensive.
+
+9. SPACING REFINEMENT
+
+Review all spacing throughout the hero section.
+
+Improve:
+
+* Alignment
+* Breathing room
+* Balance
+* Visual rhythm
+
+The design should feel intentional and luxurious.
+
+FINAL GOAL
+
+The hero section should feel like the website of a top-tier Dubai veterinary clinic.
+
+The user should immediately perceive:
+
+* Trust
+* Professionalism
+* Luxury
+* Modernity
+* High-quality care
+
+Achieve this through lighting, depth, gradients, motion, spacing and hierarchy—not by adding more content.

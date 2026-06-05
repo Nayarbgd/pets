@@ -221,6 +221,16 @@
   100% { transform: translateY(0px) translateX(0px); }
 }
 
+@keyframes petBreathe {
+  0%, 100% { transform: scale(1) translateY(0px); }
+  50%       { transform: scale(1.016) translateY(-6px); }
+}
+
+@keyframes trustFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-9px); }
+}
+
 @layer base {
   * {
     @apply border-border;
