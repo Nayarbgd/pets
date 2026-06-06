@@ -137,7 +137,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(218,53%,14%)] via-[hsl(218,53%,20%)] to-[hsl(262,47%,25%)] py-24 text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -145,7 +145,7 @@ export default function Services() {
             <motion.div variants={fadeUp}>
               <Badge className="mb-6 bg-white/10 border-white/20 text-white">Our Services</Badge>
             </motion.div>
-            <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+            <motion.h1 variants={fadeUp} className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 break-words">
               Comprehensive Pet Care<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-violet-300">
                 Under One Roof
