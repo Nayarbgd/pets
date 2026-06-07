@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import HomeMobile from "./home-mobile";
 
 const stagger = {
   hidden: {},
@@ -84,6 +85,8 @@ export default function Home() {
   useEffect(() => {
     document.title = "Safe Care Veterinary Clinic Dubai | Premium Vet Care in JLT";
   }, []);
+
+  if (isTouch) return <HomeMobile />;
 
   return (
     <div className="overflow-x-hidden">
