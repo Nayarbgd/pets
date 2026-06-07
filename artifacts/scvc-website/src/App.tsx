@@ -2,8 +2,8 @@ import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { useEffect, useState } from "react";
 import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/home";
@@ -21,9 +21,9 @@ import MobileCTABar from "@/components/shared/MobileCTABar";
 const queryClient = new QueryClient();
 
 const pageVariants = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit:    { opacity: 0, y: -4, transition: { duration: 0.18, ease: [0.55, 0, 1, 0.45] } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.25 } },
+  exit:    { opacity: 0, transition: { duration: 0.15 } },
 };
 
 function AnimatedPage({ children }: { children: React.ReactNode }) {
@@ -79,21 +79,29 @@ function Router() {
 }
 
 function App() {
+  const [isTouch, setIsTouch] = useState(true);
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <div className="flex flex-col min-h-[100dvh]">
-            <ScrollToTop />
-            <Navbar />
-            <main className="flex-1">
-              <Router />
-            </main>
-            <Footer />
-            <FloatingWhatsApp />
-            <MobileCTABar />
-          </div>
-        </WouterRouter>
+        <MotionConfig reducedMotion={isTouch ? "always" : "never"}>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <div className="flex flex-col min-h-[100dvh]">
+              <ScrollToTop />
+              <Navbar />
+              <main className="flex-1">
+                <Router />
+              </main>
+              <Footer />
+              <FloatingWhatsApp />
+              <MobileCTABar />
+            </div>
+          </WouterRouter>
+        </MotionConfig>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
