@@ -316,20 +316,35 @@ export default function Home() {
       {/* SERVICES OVERVIEW */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={stagger}>
-            <motion.div variants={fadeUp} className="text-center mb-16">
-              <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">Our Services</Badge>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-                Everything Your Pet Needs
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From routine check-ups to specialist care, grooming to emergency consultations — all under one roof in the heart of JLT.
-              </p>
-            </motion.div>
+          <div className="text-center mb-16">
+            <Badge variant="outline" className="mb-4 text-primary border-primary/20 bg-primary/5">Our Services</Badge>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
+              Everything Your Pet Needs
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From routine check-ups to specialist care, grooming to emergency consultations — all under one roof in the heart of JLT.
+            </p>
+          </div>
 
-            <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((s, i) => (
-                <motion.div key={i} variants={fadeUp}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, i) => (
+              isTouch ? (
+                <div key={i}>
+                  <Card className="group h-full border border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden" data-testid={`card-service-${i}`}>
+                    <CardContent className="p-8">
+                      <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center mb-6`}>
+                        <s.icon className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3">{s.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed mb-4">{s.desc}</p>
+                      <Link href="/services" className="inline-flex items-center text-primary font-medium text-sm gap-1">
+                        Learn more <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </div>
+              ) : (
+                <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.4, delay: i * 0.07 }}>
                   <Card className="group h-full border border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden" data-testid={`card-service-${i}`}>
                     <CardContent className="p-8">
                       <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -343,17 +358,17 @@ export default function Home() {
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))}
-            </motion.div>
+              )
+            ))}
+          </div>
 
-            <motion.div variants={fadeUp} className="text-center mt-12">
-              <Link href="/services">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-10" data-testid="button-view-all-services">
-                  View All Services <ChevronRight className="w-4 h-4 ml-1" />
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
+          <div className="text-center mt-12">
+            <Link href="/services">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white px-10" data-testid="button-view-all-services">
+                View All Services <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
