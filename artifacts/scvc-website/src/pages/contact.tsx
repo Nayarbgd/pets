@@ -11,11 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
-};
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
+import { useAnimationVariants, staggerSlow as stagger } from "@/hooks/use-animation-variants";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -37,6 +33,7 @@ const hours = [
 ];
 
 export default function Contact() {
+  const { fadeUp } = useAnimationVariants();
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {

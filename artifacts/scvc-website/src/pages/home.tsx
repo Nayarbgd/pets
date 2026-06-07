@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import {
   Phone, MessageCircle, Calendar, Star, MapPin, Shield, Heart,
   Stethoscope, Scissors, Syringe, Smile, Car, Home as HomeIcon,
@@ -16,11 +16,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
 
 const stagger = {
   hidden: {},
@@ -71,6 +66,11 @@ export default function Home() {
   useEffect(() => {
     setIsTouch(window.matchMedia("(pointer: coarse)").matches);
   }, []);
+
+  const fadeUp = useMemo(() => ({
+    hidden: { opacity: 0, y: isTouch ? 0 : 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  }), [isTouch]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     if (isTouch) return;

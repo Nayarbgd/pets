@@ -6,15 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
-};
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
+import { useAnimationVariants, staggerSlow as stagger } from "@/hooks/use-animation-variants";
 
 const reviews = [
   { name: "Sarah Al Mansouri", location: "JLT, Dubai", rating: 5, date: "March 2025", service: "Veterinary Consultation", text: "The most professional veterinary clinic I've visited in Dubai. Dr. Ahmed was incredibly patient with my golden retriever, who can be very anxious around new environments. The clinic is spotless, well-equipped, and the team genuinely loves animals. We found our forever vet.", helpful: 24, pet: "Max, Golden Retriever" },
@@ -61,6 +53,7 @@ const successStories = [
 ];
 
 export default function Reviews() {
+  const { fadeUp } = useAnimationVariants();
   useEffect(() => {
     document.title = "Client Reviews | Safe Care Veterinary Clinic Dubai";
   }, []);

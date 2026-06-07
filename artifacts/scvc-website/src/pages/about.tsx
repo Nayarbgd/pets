@@ -8,15 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
-};
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
+import { useAnimationVariants, staggerSlow as stagger } from "@/hooks/use-animation-variants";
 
 const team = [
   {
@@ -72,6 +64,7 @@ const facilities = [
 ];
 
 export default function About() {
+  const { fadeUp } = useAnimationVariants();
   useEffect(() => {
     document.title = "About Us | Safe Care Veterinary Clinic Dubai";
   }, []);

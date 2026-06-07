@@ -12,11 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
-};
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
+import { useAnimationVariants, staggerSlow as stagger } from "@/hooks/use-animation-variants";
 
 const bookingSchema = z.object({
   ownerName: z.string().min(2, "Name must be at least 2 characters"),
@@ -70,6 +66,7 @@ function getTomorrowDate() {
 }
 
 export default function Book() {
+  const { fadeUp } = useAnimationVariants();
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState<BookingFormData | null>(null);
 
