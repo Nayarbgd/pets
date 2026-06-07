@@ -210,7 +210,7 @@ export default function Home() {
 
             {/* Pet image — gentle breathing */}
             <img
-              src="/grooming-image.png"
+              src="/grooming-image.webp"
               alt="Happy dog and cat cared for at Safe Care Veterinary Clinic Dubai"
               className="relative w-full"
               style={{
@@ -440,7 +440,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/grooming-dog.jpg"
+                  src="/grooming-dog.webp"
                   alt="Professional pet grooming at Safe Care Veterinary Clinic"
                   className="w-full h-full object-cover rounded-3xl"
                   loading="lazy"

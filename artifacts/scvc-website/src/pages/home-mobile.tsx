@@ -250,7 +250,7 @@ export default function HomeMobile() {
         </div>
         <div className="rounded-2xl overflow-hidden shadow-lg mb-5">
           <img
-            src="/grooming-dog.jpg"
+            src="/grooming-dog.webp"
             alt="Professional pet grooming at Safe Care Veterinary Clinic"
             className="w-full object-cover"
             style={{ maxHeight: "220px", objectPosition: "center top" }}
