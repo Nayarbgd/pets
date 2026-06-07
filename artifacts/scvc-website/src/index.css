@@ -238,16 +238,14 @@
   }
 
   html {
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    overscroll-behavior-y: none;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    overflow-x: hidden;
-    overscroll-behavior-y: none;
+    overflow-x: clip;
   }
   
   h1, h2, h3, h4, h5, h6 {
